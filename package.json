@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "cross-domain-storage": "^2.0.7"
+  }
+}

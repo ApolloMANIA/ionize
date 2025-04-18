@@ -1,0 +1,177 @@
+html{
+	font-family: "Lato", sans-serif
+}
+
+body{
+	  background: url(henti.jpg);
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+h1{
+	font-size:100px;
+	text-align:center ;
+	color: white;
+	text-shadow: 5px 5px 10px black;
+	text-decoration: underline;
+	text-decoration-color: gray;
+	text-decoration-style:double;
+
+}
+
+input{
+	background: black;
+	color:whitesmoke;
+	font-size: 25px;
+	height:2rem;
+	width:98%;
+	margin:3px;
+	margin:auto;
+	display:block;
+
+}
+.credential-box{ /*tranluscent box*/
+	margin:auto;
+	text-align:center;
+	font-size:3rem;
+	 background: rgba(255, 255, 255, 0.1);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+	width:25rem;
+	height:25%;
+	
+	border-style: solid;
+	/*border-color:red;*/
+  padding:20px;
+  z-index: 2;
+}
+
+div{
+	padding:3px;
+}
+
+.submit-button{
+	background-color: black;
+  	border: none;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 24px;
+  	margin-top:10px;
+
+  
+}
+
+h2 {
+  font-size: 60px;
+  text-align: center;
+  color: black;
+  top: 50%;
+  left: 50%;
+  /*transform: translate(-50%, -50%);*/
+  z-index: 2;
+  margin:7px;
+  text-shadow: 5px 5px 20px white;
+}
+.div-el-button{
+	padding:0;
+	margin: 40px;
+	margin-bottom: 0px;
+	text-align: center;
+}
+.el-button{
+	padding: 20px;
+	padding-inline: 60px;
+	margin-bottom: 0;
+	background: black;
+	font-size: 30px;
+	font-weight: bolder;
+	text-shadow: 10px 10px 10px rgb(250, 249, 249);
+	border-color:papayawhip;
+}
+.el-button:hover{
+	cursor: pointer;
+}
+.q-info{
+	display: inline-block;
+	background: transparent;
+	border: transparent;
+	font-size: 25px;
+	position: relative;
+}
+.q-info:hover{
+	cursor: pointer;
+}
+.q-info:hover + .tooltiptext{
+	visibility: visible;
+}
+.tooltiptext{
+	font-family:Century Gothic;
+	
+	position: absolute;
+	display: inline-block;
+	font-size: 15px;
+	margin-left: 40px;
+	text-align: left;
+	padding: 5px;
+	width: 200px;
+	visibility: hidden;
+	background:papayawhip;
+	border:solid;
+	border-color: black;
+	border-width:2px;
+	border-spacing: 0;
+}
+.label-white {
+  color: #fff; /* Set the main color of the text */
+  text-shadow:
+    -1px -1px 0 #000, /* Top-left */
+    1px -1px 0 #000,  /* Top-right */
+    -1px 1px 0 #000,  /* Bottom-left */
+    1px 1px 0 #000;   /* Bottom-right */
+}
+
+.label-black {
+  color: #000; /* Set the main color of the text */
+  text-shadow:
+    -1px -1px 0 #fff, /* Top-left */
+    1px -1px 0 #fff,  /* Top-right */
+    -1px 1px 0 #fff,  /* Bottom-left */
+    1px 1px 0 #fff;   /* Bottom-right */
+}
+.label-red {
+  color: #f00; /* Set the main color of the text */
+  text-shadow:
+    -1px -1px 0 #fff, /* Top-left */
+    1px -1px 0 #fff,  /* Top-right */
+    -1px 1px 0 #fff,  /* Bottom-left */
+    1px 1px 0 #fff;   /* Bottom-right */
+}
+
+.suggestion {
+    padding: 7px;
+    cursor: pointer;
+    font-size: 20px;
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	border-color: #000;
+	
+	
+}
+
+.suggestion:hover {
+    background-color: black;
+	color: papayawhip;
+
+}
+
+#emailSuggestions{
+	position: absolute;
+    background-color: papayawhip;
+    right: 30px;
+    border: solid;
+    display: none; /* Hide the suggestions box initially */
+
+}

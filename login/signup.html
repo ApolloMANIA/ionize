@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Signup</title>
+	<link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+	    $(document).ready(function() {
+	        $('#signup').on('submit', function(event) {
+	            event.preventDefault(); // Prevent the form from submitting normally
+
+	            $.ajax({
+	                url: 'process-signup.php', // URL of the processing script
+	                type: 'POST',
+	                data: $(this).serialize(), // Serialize the form data
+	                dataType: 'json', // Expect JSON response
+	                success: function(response) {
+	                    if (response.message === 'Username already taken') {
+	                        $('#username-message').html(response.message); // Update the username message
+	                    } else if (response.message === 'Email already taken') {
+	                        $('#email-message').html(response.message + response.tooltip); // Update the email message with the tooltip
+	                    } else if (response.message === 'success') {
+	                        window.location.href = 'signup-success.html'; // Redirect to success page
+	                    }
+	                }
+	            });
+	        });
+
+	        // Show/hide tooltip when hovering over question mark button
+	        $('.q-info').hover(function() {
+	            $('.tooltiptext').addClass('tooltip-visible');
+	        }, function() {
+	            $('.tooltiptext').removeClass('tooltip-visible');
+	        });
+
+	        // Hide tooltip when cursor moves out of the tooltip itself
+	        $('.tooltiptext').mouseleave(function() {
+	            $(this).removeClass('tooltip-visible');
+	        });
+	    });
+	</script>
+	<style>
+		/* Add custom CSS for tooltips here */
+		.tooltiptext {
+		    display: none;
+		}
+
+		.tooltip-visible {
+		    display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<h1>IONIZE</h1>
+	<h2>Sign Up</h2>
+	<h2 id="orLogin">OR <a href="login.php"> LOGIN</a></h2>
+	<form action='signup.php' method='POST' id="signup">
+		<div class="credential-box">
+			<div id='email-div'>
+				<label for='email' class='label-black'>Email: </label>
+				<div>
+					<input type='email' id='email' class='one-line-text-input' name='email' required style="display: inline-block; width: 87%;">
+					<button class="q-info"><i class="fa fa-question"></i></button>
+					<span class="tooltiptext">You may use any Email even if it doesn't exist (If it doesn't exist, you cannot use the Forgot Password Feature)</span>
+				</div>
+				<div id='email-message' class='label-red'></div> <!-- Display email message -->
+			</div>
+			<div id="emailSuggestions"></div><!--  email suggestions -->
+			<script src='script.js'></script> <!-- javascript to suggest emails -->
+			<div id='username-div'>
+				<label for='username' class='label-black'>Username: </label>
+				<div>
+					<input type='text' id='username' class='one-line-text-input' name='username' required style="display: inline-block; width: 87%;">
+					<button class="q-info"><i class="fa fa-question"></i></button>
+					<span class="tooltiptext">You can use any username, as long as it is not taken.</span>
+				</div>
+				<div id='username-message' class='label-red'></div> <!-- Display username message -->
+			</div>
+			<div id='password-div'>
+				<label for='password' class='label-black'>Password:</label>
+				<div>
+					<input type='password' id='password' class='one-line-text-input' name='password' style="display: inline-block; width: 87%;">
+					<button class="q-info"><i class="fa fa-question"></i></button>
+					<span class="tooltiptext">You can use any Password (even a blank one)</span>
+				</div>
+			</div>
+			<div class='submit-button-div'>
+				<button class='submit-button' type='submit'>Sign up</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
